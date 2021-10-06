@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#SBATCH --job-name=heppy
+#SBATCH --partition=normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --mem=128G
+#SBATCH --gres=gpu:tesla:2
+#SBATCH --output="/mnt/beegfs/sinai-cern/heppy/cern-heppy/slurm-output/exp1_%A_%a.out"
+#SBATCH --error="/mnt/beegfs/sinai-cern/heppy/cern-heppy/slurm-output/exp1_%A_%a.err"
+
+# Limpieza de módulos cargados
+module purge
+
+# Carga de módulos software
+spack load --dependencies miniconda3
+spack load --dependencies cuda@11.1.1
+
+# Activación de entorno virtual
+source activate heppy
+
+# Ejecución del script
+srun python trainer.py
