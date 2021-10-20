@@ -1,8 +1,9 @@
 # Paths
-local_data_dir: '/mnt/beegfs/sinai-cern/heppy/hep-corpus/v3.0'
+local_data_path: '/mnt/beegfs/sinai-cern/heppy/hep-corpus/v3.0/' # last slash must be added
 data_loader_path: '/mnt/beegfs/sinai-cern/heppy/cern-heppy/datasets/heppy/heppy.py'
-checkpoint_path: '/mnt/beegfs/jcollado/.cache/huggingface/hub/xlm-roberta-base.02355debe6df1082028d2fe81ca5133715ae209d'
-trainer_path: '/mnt/beegfs/sinai-cern/heppy/cern-heppy/trainer'
+checkpoint_path: '/mnt/beegfs/sinai-cern/heppy/cern-heppy/models/xlm-roberta-base/'
+trainer_path: '/mnt/beegfs/sinai-cern/heppy/cern-heppy/trainer/'
+f1_metric_path: '/mnt/beegfs/jcollado/.cache/huggingface/modules/datasets_modules/metrics/f1/6c86fddbf90432b9c43a8c38c62a0dd9de63bad2ef0a896f9ae20273d6d6f6e9/f1.py'
 
 # Train/test split ratio
 train_split_ratio: 80

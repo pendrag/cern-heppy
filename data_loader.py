@@ -9,7 +9,7 @@ def prepare_features(dataset, tokenizer, labels2ids):
     """Tokenizes inputs and onehot-encodes labels."""
     
     def tokenize_features(example):
-        return tokenizer(example['description'], truncation=True, padding='max_length', max_length=512)
+        return tokenizer(example['description'], truncation=True, max_length=512) # Do not pad here since we'll dynamically pad with the data-collator
 
     # TODO: Esto debería de venir hecho directamente del dataset (heppy.py)
     def onehot_encode(example):
@@ -20,7 +20,7 @@ def prepare_features(dataset, tokenizer, labels2ids):
         return {'labels': labels}
 
     # Tokenize description (abstract)
-    dataset = dataset.map(tokenize_features, batched=True)
+    dataset = dataset.map(tokenize_features, batched=True)  
     # Onehot-encode labels
     dataset = dataset.map(onehot_encode, batched=True)
 

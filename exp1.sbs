@@ -1,6 +1,5 @@
 #!/bin/bash
-
-#SBATCH --job-name=heppy
+#SBATCH --job-name=th_05
 #SBATCH --partition=normal
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
@@ -14,10 +13,10 @@ module purge
 
 # Carga de módulos software
 spack load --dependencies miniconda3
-spack load --dependencies cuda@11.1.1
+spack load --dependencies cuda@11.1
 
 # Activación de entorno virtual
-source activate heppy
+source /mnt/beegfs/sinai-cern/heppy/cern-heppy/venv/bin/activate
 
 # Ejecución del script
 srun python trainer.py
