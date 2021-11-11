@@ -134,8 +134,7 @@ dmypy.json
 # Slurm
 slurm-output/
 
-# HF downloads
+# HF
 models/
 metrics/
-
-trainer/
+checkpoints/
